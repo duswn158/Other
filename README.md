@@ -1,2 +1,2 @@
 # Other
-Let's learn everything!!
+learn Python
