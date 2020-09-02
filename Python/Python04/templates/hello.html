@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='test.css') }}" />
+</head>
+<body>
+<!-- 값이 있으면 true 없으면 false -->
+{% if name %}
+   <h1>Hello, {{name}}</h1>
+{% else %}
+   <h1>Hello, World!</h1>
+{% endif %}
+
+   <form action="/test" method="post">
+      <input type="hidden" name="command" value="value test"/>
+      <input type="submit" value="test" />
+   </form>
+   
+</body>
+</html>
