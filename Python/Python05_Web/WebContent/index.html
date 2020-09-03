@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script type="text/javascript">
+
+	onload=function(){
+		var $tbody = $("#tbody")
+		// http://localhost:8585/crawling으로 요청하여, 응답받은 json을 tbody에 출력하자.
+		$.getJSON('http://localhost:8585/crawling', function(data) {
+			var movies = data.movies;
+			// console.log(movies);
+			
+			movies.sort(function(a, b) {
+				return b.star - a.star;
+			})
+			
+			for(var i = 0; i < movies.length; i++) {
+				var $tr = $("<tr>")
+				var $title = $("<td>").append(movies[i].title)
+				var $star = $("<td>").append(movies[i].star)
+				
+				$tr.append($title)
+				$tr.append($star)
+				$tbody.append($tr)
+			}
+		});
+	
+	
+	}
+
+</script>
+
+</head>
+<body>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Star</th>
+			</tr>
+		</thead>
+		<tbody id="tbody"></tbody>
+	</table>
+
+</body>
+</html>
