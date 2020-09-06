@@ -1,2 +1,2 @@
 # Other
-Learning Python
+Learning Python.
